@@ -4,9 +4,12 @@ var apiRouteCreator = require("./app/routing/apiRoutes")
 var app = express();
 var PORT = 3036;
 
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
 
 htmlRouteCreator(app);
 apiRouteCreator(app);
+
 
 
 app.get("*", function(req, res) {
